@@ -12,7 +12,11 @@ class Chart extends StatelessWidget {
       final weekDay = DateTime.now().subtract(
         Duration(days: index),
       );
+
+
       var totalSum = 0.00;
+
+
       for (var i = 0; i < recenttTransactions.length; i++) {
         if (recenttTransactions[i].date.day == weekDay.day &&
             recenttTransactions[i].date.month == weekDay.month &&
@@ -22,8 +26,9 @@ class Chart extends StatelessWidget {
       }
 
       return {'day': DateFormat.E().format(weekDay).substring(0, 1),
-       'amount': totalSum};
-    });
+       'amount': totalSum,
+       };
+    }).reversed.toList();
   }
 
   double get totalSpending {
